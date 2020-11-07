@@ -1,30 +1,28 @@
-import { shallowMount } from '@vue/test-utils'
-import router from '@/router'
+import { shallowMount } from "@vue/test-utils";
+import router from "@/router";
 
 // Component
-import App from '@/App.vue'
+import App from "@/App.vue";
 
-describe('App.vue', () => {
-    let wrapper
+describe("App.vue", () => {
+    let wrapper;
 
     const mountFunction = options => {
         return shallowMount(App, {
             global: {
-                plugins: [
-                    router
-                ]
+                plugins: [router]
             },
-            ...options,
-        })
-    }
+            ...options
+        });
+    };
 
     beforeEach(async () => {
-        router.push('/')
-        await router.isReady()
-        wrapper = mountFunction()
-    })
+        router.push("/");
+        await router.isReady();
+        wrapper = mountFunction();
+    });
 
-    it('should be mounted', () => {
-        expect(!!wrapper.vm).toBeTruthy()
-    })
-})
+    it("should be mounted", () => {
+        expect(!!wrapper.vm).toBeTruthy();
+    });
+});
